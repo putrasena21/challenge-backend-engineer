@@ -15,7 +15,7 @@ module.exports = {
         return res.badRequest("Invalid input", check);
       }
 
-      const { email, password } = req.body;
+      const { email, password, name } = req.body;
 
       const encryptedPassword = bcryptHelper.hashPassword(password);
 
@@ -32,11 +32,13 @@ module.exports = {
       const newUser = await User.create({
         email,
         password: encryptedPassword,
+        name,
       });
 
       const payload = {
         id: newUser.id,
         email,
+        name,
       };
 
       return res.created("User created", payload);
@@ -47,7 +49,7 @@ module.exports = {
 
   login: async (req, res) => {
     try {
-      const check = await validator.validateRegis(req.body);
+      const check = await validator.validateLogin(req.body);
 
       if (check.length) {
         return res.badRequest("Invalid input", check);
@@ -76,7 +78,7 @@ module.exports = {
 
       return res.success("Login success", { accessToken });
     } catch (err) {
-      return res.serverError();
+      return res.serverError(err.message);
     }
   },
 };

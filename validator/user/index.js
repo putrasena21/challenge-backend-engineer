@@ -11,11 +11,16 @@ const v = new Validator({
   },
 });
 
-const { schema } = require("./schema");
+const { schemaRegis, schemaLogin } = require("./schema");
 
 module.exports = {
   validateRegis: (payload) => {
-    const check = v.validate(payload, schema);
+    const check = v.validate(payload, schemaRegis);
+
+    return check;
+  },
+  validateLogin: (payload) => {
+    const check = v.validate(payload, schemaLogin);
 
     return check;
   },
