@@ -11,11 +11,11 @@ const v = new Validator({
   },
 });
 
-const { schemaRegis } = require("./schema");
+const { schema } = require("./schema");
 
 module.exports = {
   validateRegis: (payload) => {
-    const check = v.validate(payload, schemaRegis);
+    const check = v.validate(payload, schema);
 
     return check;
   },
