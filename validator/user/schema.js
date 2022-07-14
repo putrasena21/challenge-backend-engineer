@@ -1,4 +1,4 @@
-const schemaRegis = {
+const schema = {
   email: "email|required",
   password: {
     type: "string",
@@ -17,4 +17,4 @@ const schemaRegis = {
   },
 };
 
-module.exports = { schemaRegis };
+module.exports = { schema };
