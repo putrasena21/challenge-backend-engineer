@@ -49,6 +49,9 @@ module.exports = {
       const { todoId } = req.params;
 
       const todo = await Todo.findByPk(todoId);
+      if (!todo) {
+        return res.notFound("Todo not found");
+      }
 
       if (req.user.id !== todo.userId) {
         return res.unauthorized("You not authorized");
@@ -74,8 +77,12 @@ module.exports = {
       if (description) req.body.description = description;
 
       const todo = await Todo.findByPk(todoId);
-      if(req.user.id !== todo.userId){
-        return res.unauthorized('You not authorized')
+      if (!todo) {
+        return res.notFound("Todo not found");
+      }
+
+      if (req.user.id !== todo.userId) {
+        return res.unauthorized("You not authorized");
       }
 
       await Todo.update(
@@ -96,6 +103,23 @@ module.exports = {
       };
 
       return res.success("Todo updated", payload);
+    } catch (err) {
+      return res.serverError(err.message);
+    }
+  },
+
+  deleteTodo: async (req, res) => {
+    try {
+      const { todoId } = req.params;
+
+      const todo = await Todo.findByPk(todoId);
+      if (!todo) {
+        return res.notFound("Todo not found");
+      }
+
+      todo.destroy();
+
+      return res.success(`Todo ${todo.id} been deleted`);
     } catch (err) {
       return res.serverError(err.message);
     }
