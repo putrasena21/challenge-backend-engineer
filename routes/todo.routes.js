@@ -13,4 +13,6 @@ router.get(
   todoController.detailTodo
 );
 
+router.put("/update/:todoId", authMiddleware.userAuth, todoController.updateTodo);
+
 module.exports = router;

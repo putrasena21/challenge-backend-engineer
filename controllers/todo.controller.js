@@ -64,4 +64,40 @@ module.exports = {
       return res.serverError(err.message);
     }
   },
+
+  updateTodo: async (req, res) => {
+    try {
+      const { todoId } = req.params;
+      const { title, description } = req.body;
+
+      if (title) req.body.title = title;
+      if (description) req.body.description = description;
+
+      const todo = await Todo.findByPk(todoId);
+      if(req.user.id !== todo.userId){
+        return res.unauthorized('You not authorized')
+      }
+
+      await Todo.update(
+        {
+          title,
+          description,
+        },
+        {
+          where: {
+            id: todoId,
+          },
+        }
+      );
+
+      const payload = {
+        title,
+        description,
+      };
+
+      return res.success("Todo updated", payload);
+    } catch (err) {
+      return res.serverError(err.message);
+    }
+  },
 };
