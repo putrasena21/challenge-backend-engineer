@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Todo, {
         foreignKey: "userId",
-        as: "list",
+        as: "listTodo",
       });
     }
   }
