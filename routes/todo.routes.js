@@ -18,6 +18,11 @@ router.put(
   authMiddleware.userAuth,
   todoController.updateTodo
 );
+router.put(
+  "/complete/:todoId",
+  authMiddleware.userAuth,
+  todoController.completedTodo
+);
 
 router.delete(
   "/delete/:todoId",
