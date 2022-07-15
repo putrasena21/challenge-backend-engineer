@@ -7,5 +7,10 @@ const authMiddleware = require("../middlewares/auth.middleware");
 router.post("/create", authMiddleware.userAuth, todoController.createTodo);
 
 router.get("/all", authMiddleware.userAuth, todoController.listTodo);
+router.get(
+  "/detail/:todoId",
+  authMiddleware.userAuth,
+  todoController.detailTodo
+);
 
 module.exports = router;
