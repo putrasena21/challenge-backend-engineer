@@ -16,4 +16,10 @@ router.put(
   userController.uploadAvatar
 );
 
+router.delete(
+  "/delete/:userId",
+  authMiddleware.userAuth,
+  userController.deleteUser
+);
+
 module.exports = router;

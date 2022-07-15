@@ -62,6 +62,10 @@ module.exports = {
         },
       });
 
+      if (!user) {
+        return res.notFound("User not found");
+      }
+
       const passwordValid = await bcryptHelper.checkPassword(
         password,
         user.password
