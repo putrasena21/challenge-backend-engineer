@@ -16,7 +16,3 @@
 - [ ]      e. Share LINK hasil recording pada isian yang sudah disediakan (pastikan link bisa diakses)
 
 Note: Untuk framework/teknologi Node.js yang digunakan BEBAS. Bisa menggunakan nestjs, express, meteor, dan lain-lain.
-
-user todo list
-npm i morgan dotenv cors jwt bcrypt multer imagekit sequelize pg
-npm i -D sequelize-cli nodemon 
