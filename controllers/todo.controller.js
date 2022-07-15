@@ -5,13 +5,14 @@ module.exports = {
     try {
       const { title, description } = req.body;
 
-      await Todo.create({
+      const newTodo = await Todo.create({
         userId: req.user.id,
         title,
         description,
       });
 
       const payload = {
+        id: newTodo.id,
         title,
         description,
       };
@@ -32,8 +33,8 @@ module.exports = {
         include: [
           {
             model: Todo,
-            as: "list",
-            attributes: ["id", "title", "description"],
+            as: "listTodo",
+            attributes: ["id", "title", "description", "completed"],
           },
         ],
       });
