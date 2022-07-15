@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Todo } = require("../models");
 
 const { imagekit } = require("../lib/imagekit");
 
@@ -67,6 +67,24 @@ module.exports = {
       };
 
       return res.success("User updated", payload);
+    } catch (err) {
+      return res.serverError(err.message);
+    }
+  },
+
+  deleteUser: async (req, res) => {
+    try {
+      const { userId } = req.params;
+
+      const user = User.findByPk(userId);
+      if (!user) {
+        return res.notFound("User not found");
+      }
+
+      await Todo.destroy({ where: { userId } });
+      await User.destroy({ where: { id: userId } });
+
+      return res.success(`User been deleted`);
     } catch (err) {
       return res.serverError(err.message);
     }
