@@ -1,18 +1,14 @@
-# challenge-backend-engineer
+# Todos app api
 
-1. Buatlah simple rest api app dengan Node.js dengan kriteria sebagai berikut:
-- [ ]   a. Terdiri dari minimal 2 operasi crud yang saling berkaitan.
-- [ ]   b. Menyimpan data menggunakan database Sql atau NoSql. (pilih salah satu)
-- [ ]   c. Authentication api menggunakan JWT token.
-- [ ]   d. Buatkan fitur e2e testing untuk test token apinya.
-- [ ]   e. Pilih pattern project yang sering anda gunakan.
-- [ ]   f. Jelaskan mengapa menggunakan pattern tersebut di readme github.
+### Teknologi yang digunakan
 
-2. Buat video demo aplikasi dengan spesifikasi:
-- [ ]      a. Demokan aplikasi di seluruh halaman
-- [ ]      b. Penjelasan hasil pengerjaan dari setiap poin pada soal nomor 1
-- [ ]      c. Presentasi dengan open camera
-- [ ]      d. Gunakan aplikasi www.loom.com sebagai alat perekam (recording)
-- [ ]      e. Share LINK hasil recording pada isian yang sudah disediakan (pastikan link bisa diakses)
+- Menggunakan NodeJS sebagai runtime dan ExpressJS sebagai server
+- Menggunakan PostgreSQL untuk database dan Sequelize sebagai ORM
+- Menggunakan jsonwebtoken untuk generate token dan passport-jwt sebagai middleware untuk authentikasi user
+- Menggunakan fastest-validator untuk validasi input user
+- Menggunakan multer untuk upload file dengan multipart/form-data
+- Menggunakan imagekit sebagai cloud storage untuk menyimpan data gambar yang telah di upload
 
-Note: Untuk framework/teknologi Node.js yang digunakan BEBAS. Bisa menggunakan nestjs, express, meteor, dan lain-lain.
+### Alasan Menggunakan Pattern Ini
+
+Dengan menggunakan pattern ini saya dapat membuat struktur folder sesuai dengan apa yang inginkan. Dengan pattern ini foldernya dipisahkan berdasarkan fungsinya, seperti pada folder validator berisi schecma data untuk fastest-validator, lalu pada folder lib dan helpers berisi beberapa fungsi yang dapat saya gunakan berulang-ulang, pada folder routes hanya berisi routing.
