@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/putrasena21/challenge-backend-engineer.git"
+    "url": "git+https://github.com/putrasena21/todo-list-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/putrasena21/challenge-backend-engineer/issues"
+    "url": "https://github.com/putrasena21/todo-list-api.git/issues"
   },
-  "homepage": "https://github.com/putrasena21/challenge-backend-engineer#readme",
+  "homepage": "https://github.com/putrasena21/todo-list-api.git#readme",
   "devDependencies": {
     "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
