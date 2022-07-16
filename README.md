@@ -1,4 +1,4 @@
-# Notes app api
+# Todos app api
 
 ### Teknologi yang digunakan
 
