@@ -10,14 +10,14 @@ module.exports = {
         title,
         description,
       });
+      
+      const { id } = newTodo;
 
-      const payload = {
-        id: newTodo.id,
+      return res.created("Todo created", {
+        id,
         title,
         description,
-      };
-
-      return res.created("Todo created", payload);
+      });
     } catch (err) {
       return res.serverError(err.message);
     }
